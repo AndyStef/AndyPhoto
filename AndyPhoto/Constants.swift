@@ -14,7 +14,9 @@ struct Constants {
 
     static let APP_ID = "920b38b7aa7791bd1e310a2f3ecaa460f0021dac686c905d415bff078501a340"
 
-    static let GET_GLOBAL_PHOTOS = "photos/?client_id="
+    static let GET_GLOBAL_PHOTOS = UNSPLASH_BASE_URL + "photos/?client_id=" + APP_ID
 
     static let defaultInset: CGFloat = 2.5
 }
+
+typealias DownloadComplete = () -> ()

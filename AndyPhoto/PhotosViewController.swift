@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PhotosViewController: UIViewController {
 
@@ -17,6 +18,29 @@ class PhotosViewController: UIViewController {
 
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        setupDicesNavigationButton()
+    }
+
+    private func setupDicesNavigationButton() {
+        let dicesButton = UIButton(type: .custom)
+        dicesButton.setImage(#imageLiteral(resourceName: "Dices"), for: .normal)
+        dicesButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        dicesButton.addTarget(self, action: #selector(PhotosViewController.handleRandomizeTap), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: dicesButton)
+    }
+
+    @IBAction func testAction(_ sender: UIBarButtonItem) {
+        guard let url = URL(string: Constants.GET_GLOBAL_PHOTOS) else { return }
+        request(url).responseJSON { (responce) in
+            print(responce)
+        }
+    }
+}
+
+//MARK: - Actions and handlers
+extension PhotosViewController {
+    func handleRandomizeTap() {
+        print("test")
     }
 }
 
@@ -52,4 +76,3 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return Constants.defaultInset
     }
 }
-

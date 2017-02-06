@@ -12,7 +12,7 @@
         <!--AndyPhoto-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PhotosViewController" customModule="AndyPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="PhotosViewController" customModule="AndyPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MkN-2J-2g6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ljl-21-jpj">
                                     <size key="itemSize" width="170" height="204"/>
@@ -41,16 +41,46 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCw-4Q-72g">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jxv-f7-Zxc">
+                                        <rect key="frame" x="8" y="11" width="359" height="29"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                            <segment title="Third"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Jxv-f7-Zxc" secondAttribute="bottom" constant="11" id="LoV-Rv-ICx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jxv-f7-Zxc" secondAttribute="trailing" constant="8" id="PCX-6m-L8M"/>
+                                    <constraint firstAttribute="height" constant="50" id="ni8-oG-QVk"/>
+                                    <constraint firstItem="Jxv-f7-Zxc" firstAttribute="top" secondItem="tCw-4Q-72g" secondAttribute="top" constant="11" id="sX2-DM-Xed"/>
+                                    <constraint firstItem="Jxv-f7-Zxc" firstAttribute="leading" secondItem="tCw-4Q-72g" secondAttribute="leading" constant="8" id="z7x-W1-HO7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tCw-4Q-72g" secondAttribute="trailing" id="CTk-rQ-RcN"/>
+                            <constraint firstItem="MkN-2J-2g6" firstAttribute="top" secondItem="tCw-4Q-72g" secondAttribute="bottom" id="GKG-qs-xtd"/>
                             <constraint firstItem="MkN-2J-2g6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GhP-md-sCK"/>
                             <constraint firstAttribute="trailing" secondItem="MkN-2J-2g6" secondAttribute="trailing" id="GtG-zq-lGC"/>
-                            <constraint firstItem="MkN-2J-2g6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Yki-1i-Y45"/>
+                            <constraint firstItem="tCw-4Q-72g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kiT-HA-EVJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MkN-2J-2g6" secondAttribute="bottom" id="n1E-8a-vDo"/>
+                            <constraint firstItem="tCw-4Q-72g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wqx-3V-JIO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AndyPhoto" id="WRD-39-mBe"/>
+                    <navigationItem key="navigationItem" title="AndyPhoto" id="WRD-39-mBe">
+                        <barButtonItem key="rightBarButtonItem" title="Item" width="30" id="vFv-iS-qzV">
+                            <connections>
+                                <action selector="testAction:" destination="BYZ-38-t0r" id="17i-Pe-fak"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="MkN-2J-2g6" id="vX3-HO-LLm"/>
                     </connections>
@@ -64,7 +94,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WpX-kU-ErF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="61d-8O-LEW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="61d-8O-LEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,7 +104,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ihh-Ap-4ry"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SbT-Bc-gXv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOq-OL-Fvm" userLabel="First Responder" sceneMemberID="firstResponder"/>

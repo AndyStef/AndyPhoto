@@ -13,6 +13,7 @@
 		8F4C27261E488D3400B5EEC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F4C27251E488D3400B5EEC9 /* Assets.xcassets */; };
 		8F4C27291E488D3400B5EEC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F4C27271E488D3400B5EEC9 /* LaunchScreen.storyboard */; };
 		8F4C27361E488EA600B5EEC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27351E488EA600B5EEC9 /* Constants.swift */; };
+		8F4C27391E48A24700B5EEC9 /* PhotosDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27381E48A24700B5EEC9 /* PhotosDataService.swift */; };
 		BAC66BB93982CCA93CFC79C6 /* Pods_AndyPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		8F4C27281E488D3400B5EEC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F4C272A1E488D3400B5EEC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F4C27351E488EA600B5EEC9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8F4C27381E48A24700B5EEC9 /* PhotosDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosDataService.swift; sourceTree = "<group>"; };
 		9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,8 +86,9 @@
 				8F4C27331E488D5700B5EEC9 /* Controller */,
 				8F4C27321E488D5000B5EEC9 /* View */,
 				8F4C27311E488D4900B5EEC9 /* Model */,
-				8F4C27301E488D3C00B5EEC9 /* Supporting files */,
+				8F4C27371E48A20500B5EEC9 /* Network layer */,
 				8F4C27341E488E8800B5EEC9 /* Utilities */,
+				8F4C27301E488D3C00B5EEC9 /* Supporting files */,
 			);
 			path = AndyPhoto;
 			sourceTree = "<group>";
@@ -129,6 +132,14 @@
 				8F4C27351E488EA600B5EEC9 /* Constants.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		8F4C27371E48A20500B5EEC9 /* Network layer */ = {
+			isa = PBXGroup;
+			children = (
+				8F4C27381E48A24700B5EEC9 /* PhotosDataService.swift */,
+			);
+			name = "Network layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 			files = (
 				8F4C27211E488D3400B5EEC9 /* PhotosViewController.swift in Sources */,
 				8F4C271F1E488D3400B5EEC9 /* AppDelegate.swift in Sources */,
+				8F4C27391E48A24700B5EEC9 /* PhotosDataService.swift in Sources */,
 				8F4C27361E488EA600B5EEC9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
