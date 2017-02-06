@@ -13,9 +13,12 @@
 		8F4C27261E488D3400B5EEC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F4C27251E488D3400B5EEC9 /* Assets.xcassets */; };
 		8F4C27291E488D3400B5EEC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F4C27271E488D3400B5EEC9 /* LaunchScreen.storyboard */; };
 		8F4C27361E488EA600B5EEC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27351E488EA600B5EEC9 /* Constants.swift */; };
+		BAC66BB93982CCA93CFC79C6 /* Pods_AndyPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08BBCA42D527D616561540A6 /* Pods-AndyPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndyPhoto.release.xcconfig"; path = "Pods/Target Support Files/Pods-AndyPhoto/Pods-AndyPhoto.release.xcconfig"; sourceTree = "<group>"; };
+		619F68EFAEF5BB45D80149BF /* Pods-AndyPhoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndyPhoto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AndyPhoto/Pods-AndyPhoto.debug.xcconfig"; sourceTree = "<group>"; };
 		8F4C271B1E488D3400B5EEC9 /* AndyPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndyPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F4C271E1E488D3400B5EEC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F4C27201E488D3400B5EEC9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		8F4C27281E488D3400B5EEC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F4C272A1E488D3400B5EEC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F4C27351E488EA600B5EEC9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC66BB93982CCA93CFC79C6 /* Pods_AndyPhoto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A3AE220782796358845ECBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				619F68EFAEF5BB45D80149BF /* Pods-AndyPhoto.debug.xcconfig */,
+				08BBCA42D527D616561540A6 /* Pods-AndyPhoto.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		692F3A610AF51DAC66E09148 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8F4C27121E488D3400B5EEC9 = {
 			isa = PBXGroup;
 			children = (
 				8F4C271D1E488D3400B5EEC9 /* AndyPhoto */,
 				8F4C271C1E488D3400B5EEC9 /* Products */,
+				1A3AE220782796358845ECBC /* Pods */,
+				692F3A610AF51DAC66E09148 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F4C272D1E488D3400B5EEC9 /* Build configuration list for PBXNativeTarget "AndyPhoto" */;
 			buildPhases = (
+				389E1358CC535E483CEA63A6 /* [CP] Check Pods Manifest.lock */,
 				8F4C27171E488D3400B5EEC9 /* Sources */,
 				8F4C27181E488D3400B5EEC9 /* Frameworks */,
 				8F4C27191E488D3400B5EEC9 /* Resources */,
+				226E5A606E11342E5DC59785 /* [CP] Embed Pods Frameworks */,
+				4CDC93D2362937619B4D3C10 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,6 +201,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		226E5A606E11342E5DC59785 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AndyPhoto/Pods-AndyPhoto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		389E1358CC535E483CEA63A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4CDC93D2362937619B4D3C10 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AndyPhoto/Pods-AndyPhoto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8F4C27171E488D3400B5EEC9 /* Sources */ = {
@@ -301,6 +376,7 @@
 		};
 		8F4C272E1E488D3400B5EEC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 619F68EFAEF5BB45D80149BF /* Pods-AndyPhoto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q562T6NCPA;
@@ -314,6 +390,7 @@
 		};
 		8F4C272F1E488D3400B5EEC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08BBCA42D527D616561540A6 /* Pods-AndyPhoto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q562T6NCPA;
