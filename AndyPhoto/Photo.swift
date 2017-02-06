@@ -10,9 +10,10 @@ import UIKit
 import Alamofire
 
 class Photo {
+    //TODO: - i should make some of this optional
     var creationDate: String
     var likes: Int
-    var photoUrl: String// this should be:  urls -> small
+    var photoUrl: String
     var photoImage: UIImage?
     var user: User?
 

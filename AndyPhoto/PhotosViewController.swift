@@ -18,6 +18,10 @@ class PhotosViewController: UIViewController {
         }
     }
 
+    fileprivate struct CellId {
+        static let photoCellId = "photoCellId"
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,13 +59,21 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) //else {
-        //    return UICollectionViewCell()
-      //  }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellId.photoCellId, for: indexPath) as? PhotoCollectionViewCell else {
+            return UICollectionViewCell()
+        }
 
-        cell.backgroundColor = .red
+        let photo = photos[indexPath.item]
+        cell.configureCellWith(photo: photo)
 
         return cell
+    }
+
+    //MARK: delegate 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO: - should implement segue here
+        let user = photos[indexPath.item].user
+        print(user?.location)
     }
 
     //MARK: Flow layout sizing
