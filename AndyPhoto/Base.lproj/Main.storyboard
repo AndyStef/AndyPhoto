@@ -74,13 +74,7 @@
                             <constraint firstItem="tCw-4Q-72g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wqx-3V-JIO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AndyPhoto" id="WRD-39-mBe">
-                        <barButtonItem key="rightBarButtonItem" title="Item" width="30" id="vFv-iS-qzV">
-                            <connections>
-                                <action selector="testAction:" destination="BYZ-38-t0r" id="17i-Pe-fak"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="AndyPhoto" id="WRD-39-mBe"/>
                     <connections>
                         <outlet property="collectionView" destination="MkN-2J-2g6" id="vX3-HO-LLm"/>
                     </connections>

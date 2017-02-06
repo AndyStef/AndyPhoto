@@ -12,6 +12,11 @@ import Alamofire
 class PhotosViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView?
+    fileprivate var photos = [Photo]() {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +33,16 @@ class PhotosViewController: UIViewController {
         dicesButton.addTarget(self, action: #selector(PhotosViewController.handleRandomizeTap), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: dicesButton)
     }
-
-    @IBAction func testAction(_ sender: UIBarButtonItem) {
-        guard let url = URL(string: Constants.GET_GLOBAL_PHOTOS) else { return }
-        request(url).responseJSON { (responce) in
-            print(responce)
-        }
-    }
 }
 
 //MARK: - Actions and handlers
 extension PhotosViewController {
     func handleRandomizeTap() {
+        PhotosDataService.instance.downloadPhotos {
+            self.photos = PhotosDataService.instance.photos
+            print("Succes")
+        }
+
         print("test")
     }
 }
@@ -48,7 +51,7 @@ extension PhotosViewController {
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     //MARK: dataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return photos.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
