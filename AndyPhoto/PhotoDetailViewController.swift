@@ -48,6 +48,7 @@ class PhotoDetailViewController: UIViewController {
             randomButton?.isHidden = false
         }
 
+        likeButton?.setImage(photo.isLikedByUser ? #imageLiteral(resourceName: "liked_icon"): #imageLiteral(resourceName: "like_outline"), for: .normal)
         usernameLabel?.text = photo.user?.username
         photoImageView?.image = photo.photoImage
         likesNumberLabel?.text = String(photo.likes) + " likes"
@@ -57,7 +58,6 @@ class PhotoDetailViewController: UIViewController {
     }
 
     private func customizeProfileImageView() {
-        //TODO: - WTF?
         userProfileImageView?.layer.cornerRadius = 22
         userProfileImageView?.layer.masksToBounds = true
     }
@@ -73,13 +73,23 @@ class PhotoDetailViewController: UIViewController {
 //MARK: - Actions and handlers 
 extension PhotoDetailViewController {
     @IBAction private func likeButtonPressed(_ sender: UIButton) {
-        //TODO: - implement like/unlike here
         if AuthManager.sharedInstance.accessToken != nil {
-            print("You can like photos")
+            if photo?.isLikedByUser ?? false {
+                PhotosDataService.instance.unlikePhotoWith(id: photo?.photoId ?? "", completed: { 
+                    self.likeButton?.setImage(#imageLiteral(resourceName: "like_outline"), for: .normal)
+                    self.photo?.isLikedByUser = false
+                })
+            } else {
+                PhotosDataService.instance.likePhotoWith(id: photo?.photoId ?? "") {
+                    self.photo?.isLikedByUser = true
+                    self.likeButton?.setImage(#imageLiteral(resourceName: "liked_icon"), for: .normal)
+                }
+            }
         } else {
-            print("You can notttt like suck")
+            let alert = UIAlertController(title: "Error", message: "You cannot like photos when you are not authorized, please go to starter page and sign in", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
-        likeButton?.setImage(#imageLiteral(resourceName: "liked_icon"), for: .normal)
     }
 
     func handleUserInfoTap() {

@@ -36,14 +36,20 @@ class PhotosDataService {
         var photoLikes = 0
         var photoDate = ""
         var photoUrl = ""
+        var photoId = ""
+        var isLiked = false
         
         request(url).responseJSON { (responce) in
             if let photosArray = responce.result.value as? [[String: Any]] {
                 for photo in photosArray {
                     if let likes = photo["likes"] as? Int,
-                        let date = photo["created_at"] as? String {
+                        let date = photo["created_at"] as? String,
+                        let id = photo["id"] as? String,
+                        let liked = photo["liked_by_user"] as? Bool {
                         photoLikes = likes
                         photoDate = date
+                        photoId = id
+                        isLiked = liked
                     }
 
                     if let urlsBox = photo["urls"] as? [String: Any] {
@@ -52,7 +58,7 @@ class PhotosDataService {
                         }
                     }
 
-                    let photoToAdd = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl)
+                    let photoToAdd = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl, photoId: photoId, isLiked: isLiked)
                     if let userInfo = photo["user"] as? [String: Any] {
                         photoToAdd.user = self.parseUserWith(inputDict: userInfo)
                     }
@@ -70,14 +76,20 @@ class PhotosDataService {
         var photoLikes = 0
         var photoDate = ""
         var photoUrl = ""
+        var photoId = ""
+        var isLiked = false
 
         request(url).responseJSON { (response) in
             if let photo = response.result.value as? [String: Any] {
                 //TODO: - put this into separate method
                 if let likes = photo["likes"] as? Int,
-                    let date = photo["created_at"] as? String {
+                    let date = photo["created_at"] as? String,
+                    let id = photo["id"] as? String,
+                    let liked = photo["liked_by_user"] as? Bool {
                     photoLikes = likes
                     photoDate = date
+                    photoId = id
+                    isLiked = liked
                 }
 
                 if let urlsBox = photo["urls"] as? [String: Any] {
@@ -86,7 +98,7 @@ class PhotosDataService {
                     }
                 }
 
-                let photoToAdd = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl)
+                let photoToAdd = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl, photoId: photoId, isLiked: isLiked)
                 photoToAdd.isRandom = true
                 if let userInfo = photo["user"] as? [String: Any] {
                     photoToAdd.user = self.parseUserWith(inputDict: userInfo)
@@ -96,6 +108,34 @@ class PhotosDataService {
             }
 
             completed()
+        }
+    }
+
+    func likePhotoWith(id: String, completed: @escaping DownloadComplete) {
+        let urlString = Constants.UNSPLASH_BASE_URL + "/photos/\(id)/like"
+        guard let url = URL(string: urlString), let accessToken = AuthManager.sharedInstance.accessToken else { return }
+        var header = HTTPHeaders()
+        header["Authorization"] = "Bearer \(accessToken)"
+
+        request(url, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+
+            if response.response?.statusCode == 201 {
+                completed()
+            }
+        }
+    }
+
+    func unlikePhotoWith(id: String, completed: @escaping DownloadComplete) {
+        let urlString = Constants.UNSPLASH_BASE_URL + "/photos/\(id)/like"
+        guard let url = URL(string: urlString), let accessToken = AuthManager.sharedInstance.accessToken else { return }
+        var header = HTTPHeaders()
+        header["Authorization"] = "Bearer \(accessToken)"
+
+        request(url, method: .delete, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+            if response.response?.statusCode == 200 {
+                print("you deleted your like")
+                completed()
+            }
         }
     }
 

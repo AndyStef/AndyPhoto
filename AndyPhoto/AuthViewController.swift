@@ -11,7 +11,7 @@ import WebKit
 
 class AuthViewController: UIViewController, WKNavigationDelegate {
 
-    private var webView: WKWebView?
+    fileprivate var webView: WKWebView?
     weak var delegate: StartViewController?
 
     override func viewDidLoad() {
@@ -42,10 +42,17 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
             })
         }
     }
+}
 
-    @IBAction func backAction(_ sender: Any) {
+//MARK: - Actions
+extension AuthViewController {
+    @IBAction private func backAction(_ sender: Any) {
         if webView?.canGoBack ?? false {
             webView?.goBack()
         }
+    }
+
+    @IBAction private func homeAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -12,7 +12,6 @@ import Alamofire
 class User {
     //TODO: - i should make some of this optional
     var username: String
-//    var name: String
     var bio: String
     var location: String
     var totalLikes: Int

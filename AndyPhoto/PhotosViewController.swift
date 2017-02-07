@@ -62,12 +62,17 @@ extension PhotosViewController {
         }
     }
 
-    @IBAction func sortTypeValueChanged(_ sender: UISegmentedControl) {
+    @IBAction private func sortTypeValueChanged(_ sender: UISegmentedControl) {
         let sortType = SortType(rawValue: sender.selectedSegmentIndex)
         PhotosDataService.instance.photos.removeAll()
         PhotosDataService.instance.downloadPhotos(with: sortType ?? .latest) {
             self.photos = PhotosDataService.instance.photos
         }
+    }
+
+    @IBAction private func logoutAction(_ sender: Any) {
+        AuthManager.sharedInstance.accessToken = nil
+        dismiss(animated: true, completion: nil)
     }
 }
 

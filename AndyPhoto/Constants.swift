@@ -12,11 +12,11 @@ struct Constants {
 
     static let UNSPLASH_BASE_URL = "https://api.unsplash.com/"
 
-    static let APP_ID = "920b38b7aa7791bd1e310a2f3ecaa460f0021dac686c905d415bff078501a340"
+    static let APP_ID = "a318deaa9ea6f0f7fd14e1e4d5e01aeb93793ff3a7b008d15bbe0eaa51e99656"
 
     static let REDIRECT_URI = "urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob"
 
-    static let APP_SECRET = "c3e7b4077029eec5f9cb335b2776f05bfe3f46727d9f3725149eafa3048ad560"
+    static let APP_SECRET = "21bfbc1fa1c9baab3ae1a39e49caf43453e6c2905bca70449149b0de23b7be27"
 
     static let GET_GLOBAL_PHOTOS = UNSPLASH_BASE_URL + "photos/?client_id=" + APP_ID + "&per_page=15"
 

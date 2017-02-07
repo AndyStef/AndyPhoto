@@ -21,7 +21,7 @@ class AuthManager {
             URLQueryItem(name: "client_id", value: Constants.APP_ID),
             URLQueryItem(name: "redirect_uri", value: self.redirectURL.absoluteString),
             URLQueryItem(name: "response_type", value: "code"),
-            URLQueryItem(name: "scope", value: "public")
+            URLQueryItem(name: "scope", value: "public+write_likes")
         ]
 
         return components.url
@@ -55,33 +55,17 @@ class AuthManager {
         }
     }
 
-
-    static let publicScope = ["public+write_likes"]
-
-    static let allScopes = [
-        "public",
-        "read_user",
-        "write_user",
-        "read_photos",
-        "write_photos",
-        "write_likes",
-        "read_collections",
-        "write_collections"
-    ]
-
     static let sharedInstance = AuthManager(appId: Constants.APP_ID, secret: Constants.APP_SECRET)
 
     private let appId: String
     private let secret: String
     private let redirectURL: URL
-    private let scopes: [String]
     var accessToken: String? = nil
 
-    init(appId: String, secret: String, scopes: [String] = AuthManager.allScopes) {
+    init(appId: String, secret: String) {
         self.appId = appId
         self.secret = secret
         self.redirectURL = URL(string: "urn:ietf:wg:oauth:2.0:oob")!
-        self.scopes = scopes
     }
 
 }

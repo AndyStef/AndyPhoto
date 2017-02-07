@@ -108,7 +108,13 @@
                             <constraint firstItem="tCw-4Q-72g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wqx-3V-JIO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AndyPhoto" id="WRD-39-mBe"/>
+                    <navigationItem key="navigationItem" title="AndyPhoto" id="WRD-39-mBe">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="j4z-So-MAw">
+                            <connections>
+                                <action selector="logoutAction:" destination="BYZ-38-t0r" id="Atq-vP-9uH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicatorView" destination="zcg-e6-PDe" id="l49-cU-k3X"/>
                         <outlet property="collectionView" destination="MkN-2J-2g6" id="vX3-HO-LLm"/>
@@ -407,6 +413,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Nam-of-6tC">
                             <connections>
                                 <action selector="backAction:" destination="TBz-PT-HuO" id="U3g-43-6JL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="owd-YU-5WQ">
+                            <connections>
+                                <action selector="homeAction:" destination="TBz-PT-HuO" id="AXm-Au-bu6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

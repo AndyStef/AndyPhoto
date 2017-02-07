@@ -17,11 +17,15 @@ class Photo {
     var photoImage: UIImage?
     var user: User?
     var isRandom: Bool?
+    var photoId: String
+    var isLikedByUser: Bool
 
-    init(likes: Int, creationDate: String, photoUrl: String) {
+    init(likes: Int, creationDate: String, photoUrl: String, photoId: String, isLiked: Bool) {
         self.likes = likes
         self.creationDate = creationDate
         self.photoUrl = photoUrl
+        self.photoId = photoId
+        self.isLikedByUser = isLiked
     }
 
     func downloadPhotoImage(completed: @escaping DownloadComplete) {
