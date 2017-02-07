@@ -19,6 +19,9 @@
 		8F4C273F1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C273E1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift */; };
 		8F4C27411E49453A00B5EEC9 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27401E49453900B5EEC9 /* PhotoDetailViewController.swift */; };
 		8F4C27431E49E77400B5EEC9 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27421E49E77400B5EEC9 /* UserDetailViewController.swift */; };
+		8F4C27451E49F3A100B5EEC9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27441E49F3A100B5EEC9 /* AuthManager.swift */; };
+		8F4C27471E49FB1D00B5EEC9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27461E49FB1D00B5EEC9 /* AuthViewController.swift */; };
+		8F4C27491E4A1EB500B5EEC9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27481E4A1EB500B5EEC9 /* StartViewController.swift */; };
 		BAC66BB93982CCA93CFC79C6 /* Pods_AndyPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		8F4C273E1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F4C27401E49453900B5EEC9 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		8F4C27421E49E77400B5EEC9 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		8F4C27441E49F3A100B5EEC9 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		8F4C27461E49FB1D00B5EEC9 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		8F4C27481E4A1EB500B5EEC9 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +143,8 @@
 				8F4C27201E488D3400B5EEC9 /* PhotosViewController.swift */,
 				8F4C27401E49453900B5EEC9 /* PhotoDetailViewController.swift */,
 				8F4C27421E49E77400B5EEC9 /* UserDetailViewController.swift */,
+				8F4C27461E49FB1D00B5EEC9 /* AuthViewController.swift */,
+				8F4C27481E4A1EB500B5EEC9 /* StartViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				8F4C27381E48A24700B5EEC9 /* PhotosDataService.swift */,
+				8F4C27441E49F3A100B5EEC9 /* AuthManager.swift */,
 			);
 			name = "Network layer";
 			sourceTree = "<group>";
@@ -281,15 +290,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4C27471E49FB1D00B5EEC9 /* AuthViewController.swift in Sources */,
 				8F4C27211E488D3400B5EEC9 /* PhotosViewController.swift in Sources */,
 				8F4C271F1E488D3400B5EEC9 /* AppDelegate.swift in Sources */,
 				8F4C27431E49E77400B5EEC9 /* UserDetailViewController.swift in Sources */,
 				8F4C273D1E491DF600B5EEC9 /* User.swift in Sources */,
+				8F4C27491E4A1EB500B5EEC9 /* StartViewController.swift in Sources */,
 				8F4C27391E48A24700B5EEC9 /* PhotosDataService.swift in Sources */,
 				8F4C273F1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift in Sources */,
 				8F4C27361E488EA600B5EEC9 /* Constants.swift in Sources */,
 				8F4C27411E49453A00B5EEC9 /* PhotoDetailViewController.swift in Sources */,
 				8F4C273B1E491D2C00B5EEC9 /* Photo.swift in Sources */,
+				8F4C27451E49F3A100B5EEC9 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

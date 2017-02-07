@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WpX-kU-ErF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5L4-Wh-gm6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -364,6 +364,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOq-OL-Fvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="37.331334332833585"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="roc-bN-X6a">
+            <objects>
+                <viewController id="TBz-PT-HuO" customClass="AuthViewController" customModule="AndyPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0YU-KD-9I1"/>
+                        <viewControllerLayoutGuide type="bottom" id="6af-FK-1a1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fKN-Wc-hvr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uxp-cf-dIL">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Nam-of-6tC">
+                            <connections>
+                                <action selector="backAction:" destination="TBz-PT-HuO" id="U3g-43-6JL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TAe-gu-yTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914.4000000000001" y="704.79760119940033"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="Rds-9F-LhS">
+            <objects>
+                <viewController id="5L4-Wh-gm6" customClass="StartViewController" customModule="AndyPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XG1-Zy-n53"/>
+                        <viewControllerLayoutGuide type="bottom" id="2kG-yH-UMe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y42-uF-YHW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jhf-Ew-HL1">
+                                <rect key="frame" x="105" y="303" width="165" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNl-Vu-pxj">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="30"/>
+                                        <state key="normal" title="Continue as anonymous"/>
+                                        <connections>
+                                            <segue destination="WpX-kU-ErF" kind="presentation" identifier="showMainScreen" id="HS9-Tt-gwR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5t-Kv-elM">
+                                        <rect key="frame" x="63.5" y="30" width="38" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <segue destination="Zik-zd-9hq" kind="show" identifier="showWebView" id="TUY-tB-ac0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jhf-Ew-HL1" firstAttribute="centerX" secondItem="y42-uF-YHW" secondAttribute="centerX" id="i9f-5o-Ffb"/>
+                            <constraint firstItem="jhf-Ew-HL1" firstAttribute="centerY" secondItem="y42-uF-YHW" secondAttribute="centerY" id="lg7-qn-7hS"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDK-oT-PGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-250" y="728"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QRy-kC-2fg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zik-zd-9hq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GXP-oe-XmW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TBz-PT-HuO" kind="relationship" relationship="rootViewController" id="uas-sf-wE8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Xc-Wm-tSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975.20000000000005" y="704.79760119940033"/>
         </scene>
     </scenes>
     <resources>
