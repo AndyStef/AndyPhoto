@@ -101,11 +101,81 @@
                     <navigationItem key="navigationItem" title="AndyPhoto" id="WRD-39-mBe"/>
                     <connections>
                         <outlet property="collectionView" destination="MkN-2J-2g6" id="vX3-HO-LLm"/>
+                        <segue destination="vSS-U0-YEX" kind="show" identifier="showPhotoDetail" id="zKt-Oh-mZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="975.20000000000005" y="37.331334332833585"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="9MA-0O-cbi">
+            <objects>
+                <viewController id="vSS-U0-YEX" customClass="PhotoDetailViewController" customModule="AndyPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4QB-9Q-HTv"/>
+                        <viewControllerLayoutGuide type="bottom" id="vs6-87-6pw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aF6-pS-moo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbe-rc-OYG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="54"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cp9-Qj-zKF">
+                                        <rect key="frame" x="8" y="8" width="48" height="38"/>
+                                        <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="9Bo-Mf-AlT"/>
+                                            <constraint firstAttribute="height" constant="38" id="qXU-pG-Coh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX2-xf-GPP">
+                                        <rect key="frame" x="64" y="17" width="303" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cp9-Qj-zKF" secondAttribute="bottom" constant="8" id="Cor-R0-L0j"/>
+                                    <constraint firstItem="cp9-Qj-zKF" firstAttribute="top" secondItem="Qbe-rc-OYG" secondAttribute="top" constant="8" id="NuF-wh-Ahg"/>
+                                    <constraint firstItem="cp9-Qj-zKF" firstAttribute="leading" secondItem="Qbe-rc-OYG" secondAttribute="leading" constant="8" id="PTR-Xh-Lam"/>
+                                    <constraint firstItem="LX2-xf-GPP" firstAttribute="leading" secondItem="cp9-Qj-zKF" secondAttribute="trailing" constant="8" id="Ulj-KE-QTq"/>
+                                    <constraint firstItem="LX2-xf-GPP" firstAttribute="centerY" secondItem="Qbe-rc-OYG" secondAttribute="centerY" id="WNS-Yc-2mq"/>
+                                    <constraint firstAttribute="height" constant="54" id="gef-QE-f9M"/>
+                                    <constraint firstAttribute="trailing" secondItem="LX2-xf-GPP" secondAttribute="trailing" constant="8" id="tcR-eY-9i3"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4a3-6Y-yBg">
+                                <rect key="frame" x="0.0" y="118" width="375" height="317"/>
+                                <color key="backgroundColor" red="0.7011265605" green="1" blue="0.32409071950000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="317" id="yDd-JK-0s3"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Qbe-rc-OYG" secondAttribute="trailing" id="4EO-iB-Y3K"/>
+                            <constraint firstAttribute="trailing" secondItem="4a3-6Y-yBg" secondAttribute="trailing" id="8fu-l8-vzD"/>
+                            <constraint firstItem="Qbe-rc-OYG" firstAttribute="top" secondItem="4QB-9Q-HTv" secondAttribute="bottom" id="GpA-S7-BaH"/>
+                            <constraint firstItem="4a3-6Y-yBg" firstAttribute="top" secondItem="Qbe-rc-OYG" secondAttribute="bottom" id="LPE-cc-6wd"/>
+                            <constraint firstItem="Qbe-rc-OYG" firstAttribute="leading" secondItem="aF6-pS-moo" secondAttribute="leading" id="yUG-J9-eOg"/>
+                            <constraint firstItem="4a3-6Y-yBg" firstAttribute="leading" secondItem="aF6-pS-moo" secondAttribute="leading" id="ygD-jO-xZ7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="4a3-6Y-yBg" id="Ohr-9i-SvD"/>
+                        <outlet property="userProfileImageView" destination="cp9-Qj-zKF" id="1oC-UP-xmu"/>
+                        <outlet property="usernameLabel" destination="LX2-xf-GPP" id="88T-ud-cLS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UKe-bN-iHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845.5999999999999" y="36.431784107946029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="29u-a3-dQH">

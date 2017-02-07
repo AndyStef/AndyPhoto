@@ -17,6 +17,7 @@
 		8F4C273B1E491D2C00B5EEC9 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C273A1E491D2B00B5EEC9 /* Photo.swift */; };
 		8F4C273D1E491DF600B5EEC9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C273C1E491DF600B5EEC9 /* User.swift */; };
 		8F4C273F1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C273E1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift */; };
+		8F4C27411E49453A00B5EEC9 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C27401E49453900B5EEC9 /* PhotoDetailViewController.swift */; };
 		BAC66BB93982CCA93CFC79C6 /* Pods_AndyPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		8F4C273A1E491D2B00B5EEC9 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8F4C273C1E491DF600B5EEC9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F4C273E1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F4C27401E49453900B5EEC9 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		9E6BF13DAEDF6AEE00412AE3 /* Pods_AndyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				8F4C27201E488D3400B5EEC9 /* PhotosViewController.swift */,
+				8F4C27401E49453900B5EEC9 /* PhotoDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				8F4C27391E48A24700B5EEC9 /* PhotosDataService.swift in Sources */,
 				8F4C273F1E492FEC00B5EEC9 /* PhotoCollectionViewCell.swift in Sources */,
 				8F4C27361E488EA600B5EEC9 /* Constants.swift in Sources */,
+				8F4C27411E49453A00B5EEC9 /* PhotoDetailViewController.swift in Sources */,
 				8F4C273B1E491D2C00B5EEC9 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,6 +37,14 @@ class PhotosViewController: UIViewController {
         dicesButton.addTarget(self, action: #selector(PhotosViewController.handleRandomizeTap), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: dicesButton)
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPhotoDetail" {
+            let photoDetailViewController = segue.destination as? PhotoDetailViewController
+            let photo = sender as? Photo
+            photoDetailViewController?.photo = photo
+        }
+    }
 }
 
 //MARK: - Actions and handlers
@@ -63,6 +71,7 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
 
+        //TODO: - implement trick to see likes normally
         let photo = photos[indexPath.item]
         cell.configureCellWith(photo: photo)
 
@@ -72,8 +81,8 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     //MARK: delegate 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //TODO: - should implement segue here
-        let user = photos[indexPath.item].user
-        print(user?.location)
+        let photo = photos[indexPath.item]
+        performSegue(withIdentifier: "showPhotoDetail", sender: photo)
     }
 
     //MARK: Flow layout sizing
