@@ -12,6 +12,8 @@ import Alamofire
 class PhotosViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView?
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView?
+
     fileprivate var photos = [Photo]() {
         didSet {
             collectionView?.reloadData()
@@ -28,6 +30,10 @@ class PhotosViewController: UIViewController {
         collectionView?.delegate = self
         collectionView?.dataSource = self
         setupDicesNavigationButton()
+        PhotosDataService.instance.downloadPhotos {
+            self.activityIndicatorView?.stopAnimating()
+            self.photos = PhotosDataService.instance.photos
+        }
     }
 
     private func setupDicesNavigationButton() {
@@ -50,12 +56,15 @@ class PhotosViewController: UIViewController {
 //MARK: - Actions and handlers
 extension PhotosViewController {
     func handleRandomizeTap() {
-        PhotosDataService.instance.downloadPhotos {
-            self.photos = PhotosDataService.instance.photos
-            print("Succes")
-        }
 
-        print("test")
+    }
+
+    @IBAction func sortTypeValueChanged(_ sender: UISegmentedControl) {
+        let sortType = SortType(rawValue: sender.selectedSegmentIndex)
+        PhotosDataService.instance.photos.removeAll()
+        PhotosDataService.instance.downloadPhotos(with: sortType ?? .latest) {
+            self.photos = PhotosDataService.instance.photos
+        }
     }
 }
 

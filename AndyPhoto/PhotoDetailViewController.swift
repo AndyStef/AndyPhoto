@@ -63,6 +63,11 @@ class PhotoDetailViewController: UIViewController {
 extension PhotoDetailViewController {
     @IBAction private func likeButtonPressed(_ sender: UIButton) {
         //TODO: - implement like/unlike here
+        if AuthManager.sharedInstance.accessToken != nil {
+            print("You can like photos")
+        } else {
+            print("You can notttt like suck")
+        }
         likeButton?.setImage(#imageLiteral(resourceName: "liked_icon"), for: .normal)
     }
 
