@@ -70,7 +70,7 @@ class PhotosDataService {
         }
 
         if let imageProfileUrlBox = inputDict["profile_image"] as? [String: Any] {
-            if let profileImageUrl = imageProfileUrlBox["small"] as? String {
+            if let profileImageUrl = imageProfileUrlBox["medium"] as? String {
                 userProfileImageUrl = profileImageUrl
             }
         }

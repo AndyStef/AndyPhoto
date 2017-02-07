@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class User {
     //TODO: - i should make some of this optional
@@ -26,5 +27,17 @@ class User {
         self.totalLikes = totalLikes
         self.totalPhotos = totalPhotos
         self.profileImageUrl = profileImageUrl
+    }
+
+    func downloadProfileImage(completed: @escaping DownloadComplete) {
+        request(self.profileImageUrl).responseData { (responce) in
+            if let data = responce.result.value {
+                if let image = UIImage(data: data) {
+                    self.profileUmage = image
+                }
+            }
+
+            completed()
+        }
     }
 }
