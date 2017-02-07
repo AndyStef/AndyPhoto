@@ -56,7 +56,10 @@ class PhotosViewController: UIViewController {
 //MARK: - Actions and handlers
 extension PhotosViewController {
     func handleRandomizeTap() {
-
+        PhotosDataService.instance.getRandomPhoto {
+            guard let photo = PhotosDataService.instance.randomPhoto else { return }
+            self.performSegue(withIdentifier: "showPhotoDetail", sender: photo)
+        }
     }
 
     @IBAction func sortTypeValueChanged(_ sender: UISegmentedControl) {
@@ -89,7 +92,6 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
     //MARK: delegate 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO: - should implement segue here
         let photo = photos[indexPath.item]
         performSegue(withIdentifier: "showPhotoDetail", sender: photo)
     }

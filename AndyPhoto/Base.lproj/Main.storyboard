@@ -200,6 +200,16 @@
                                     <constraint firstAttribute="bottom" secondItem="bwL-Hx-so3" secondAttribute="bottom" constant="5" id="xUG-jy-h5v"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xj1-Dc-dVk">
+                                <rect key="frame" x="117" y="497" width="141" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Random again!">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="randomButtonPressed:" destination="vSS-U0-YEX" eventType="touchUpInside" id="eZM-9U-ztV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -209,7 +219,9 @@
                             <constraint firstItem="4a3-6Y-yBg" firstAttribute="top" secondItem="Qbe-rc-OYG" secondAttribute="bottom" id="LPE-cc-6wd"/>
                             <constraint firstAttribute="trailing" secondItem="8Qq-hv-xaA" secondAttribute="trailing" id="Pbs-Ug-2As"/>
                             <constraint firstItem="8Qq-hv-xaA" firstAttribute="leading" secondItem="aF6-pS-moo" secondAttribute="leading" id="Pvy-tP-cjy"/>
+                            <constraint firstItem="xj1-Dc-dVk" firstAttribute="top" secondItem="8Qq-hv-xaA" secondAttribute="bottom" constant="8" id="Zdd-Fz-FfC"/>
                             <constraint firstItem="8Qq-hv-xaA" firstAttribute="top" secondItem="4a3-6Y-yBg" secondAttribute="bottom" id="ahH-0V-9Ke"/>
+                            <constraint firstItem="xj1-Dc-dVk" firstAttribute="centerX" secondItem="aF6-pS-moo" secondAttribute="centerX" id="npL-Rx-LdH"/>
                             <constraint firstItem="Qbe-rc-OYG" firstAttribute="leading" secondItem="aF6-pS-moo" secondAttribute="leading" id="yUG-J9-eOg"/>
                             <constraint firstItem="4a3-6Y-yBg" firstAttribute="leading" secondItem="aF6-pS-moo" secondAttribute="leading" id="ygD-jO-xZ7"/>
                         </constraints>
@@ -218,6 +230,7 @@
                         <outlet property="likeButton" destination="bwL-Hx-so3" id="nrY-nV-zlY"/>
                         <outlet property="likesNumberLabel" destination="pkS-5U-bTb" id="on6-Sh-nIo"/>
                         <outlet property="photoImageView" destination="4a3-6Y-yBg" id="Ohr-9i-SvD"/>
+                        <outlet property="randomButton" destination="xj1-Dc-dVk" id="Daf-SL-wUe"/>
                         <outlet property="userInfoView" destination="Qbe-rc-OYG" id="Mvw-T0-Ijn"/>
                         <outlet property="userProfileImageView" destination="cp9-Qj-zKF" id="1oC-UP-xmu"/>
                         <outlet property="usernameLabel" destination="LX2-xf-GPP" id="88T-ud-cLS"/>

@@ -16,6 +16,7 @@ class Photo {
     var photoUrl: String
     var photoImage: UIImage?
     var user: User?
+    var isRandom: Bool?
 
     init(likes: Int, creationDate: String, photoUrl: String) {
         self.likes = likes

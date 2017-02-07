@@ -16,6 +16,7 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet fileprivate weak var likeButton: UIButton?
     @IBOutlet private weak var likesNumberLabel: UILabel?
     @IBOutlet private weak var userInfoView: UIView?
+    @IBOutlet private weak var randomButton: UIButton?
 
     var photo: Photo?
 
@@ -36,7 +37,17 @@ class PhotoDetailViewController: UIViewController {
         }
     }
 
-    private func setupUIWith(photo: Photo) {
+    fileprivate func setupUIWith(photo: Photo) {
+        if photo.photoImage == nil {
+            photo.downloadPhotoImage(completed: { 
+                self.photoImageView?.image = photo.photoImage
+            })
+        }
+
+        if photo.isRandom ?? false {
+            randomButton?.isHidden = false
+        }
+
         usernameLabel?.text = photo.user?.username
         photoImageView?.image = photo.photoImage
         likesNumberLabel?.text = String(photo.likes) + " likes"
@@ -73,5 +84,13 @@ extension PhotoDetailViewController {
 
     func handleUserInfoTap() {
         performSegue(withIdentifier: "showUserDetail", sender: self)
+    }
+
+    @IBAction private func randomButtonPressed(_ sender: Any) {
+        PhotosDataService.instance.getRandomPhoto {
+            guard let randomPhoto = PhotosDataService.instance.randomPhoto else { return }
+            self.photo = randomPhoto
+            self.setupUIWith(photo: randomPhoto)
+        }
     }
 }

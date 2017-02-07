@@ -20,6 +20,8 @@ struct Constants {
 
     static let GET_GLOBAL_PHOTOS = UNSPLASH_BASE_URL + "photos/?client_id=" + APP_ID + "&per_page=15"
 
+    static let GET_RANDOM_PHOTO = UNSPLASH_BASE_URL + "photos/random/?client_id=" + APP_ID
+
     static let defaultInset: CGFloat = 2.5
 }
 

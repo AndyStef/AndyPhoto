@@ -28,6 +28,7 @@ class PhotosDataService {
     static let instance = PhotosDataService()
 
     var photos = [Photo]()
+    var randomPhoto: Photo?
 
     func downloadPhotos(with sortType: SortType = .latest, completed: @escaping DownloadComplete) {
         let urlString = Constants.GET_GLOBAL_PHOTOS + "&order_by=\(sortType.nameFor())"
@@ -58,6 +59,40 @@ class PhotosDataService {
 
                     self.photos.append(photoToAdd)
                 }
+            }
+
+            completed()
+        }
+    }
+
+    func getRandomPhoto(completed: @escaping DownloadComplete) {
+        guard let url = URL(string: Constants.GET_RANDOM_PHOTO) else { return }
+        var photoLikes = 0
+        var photoDate = ""
+        var photoUrl = ""
+
+        request(url).responseJSON { (response) in
+            if let photo = response.result.value as? [String: Any] {
+                //TODO: - put this into separate method
+                if let likes = photo["likes"] as? Int,
+                    let date = photo["created_at"] as? String {
+                    photoLikes = likes
+                    photoDate = date
+                }
+
+                if let urlsBox = photo["urls"] as? [String: Any] {
+                    if let url = urlsBox["small"] as? String {
+                        photoUrl = url
+                    }
+                }
+
+                let photoToAdd = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl)
+                photoToAdd.isRandom = true
+                if let userInfo = photo["user"] as? [String: Any] {
+                    photoToAdd.user = self.parseUserWith(inputDict: userInfo)
+                }
+                //-----------------------------------
+                self.randomPhoto = photoToAdd
             }
 
             completed()
