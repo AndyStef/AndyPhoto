@@ -42,25 +42,34 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G03-0P-G2R">
                                                     <rect key="frame" x="0.0" y="0.0" width="170" height="204"/>
                                                 </imageView>
+                                                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkY-co-9Kw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="204"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvC-tT-V5t">
                                                     <rect key="frame" x="8" y="175" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="GkY-co-9Kw" firstAttribute="top" secondItem="kql-su-awj" secondAttribute="top" id="BAd-3l-3yF"/>
                                             <constraint firstItem="VvC-tT-V5t" firstAttribute="bottom" secondItem="kql-su-awj" secondAttribute="bottomMargin" id="SjN-kc-8V5"/>
+                                            <constraint firstAttribute="trailing" secondItem="GkY-co-9Kw" secondAttribute="trailing" id="V1Z-Xz-Xoa"/>
+                                            <constraint firstItem="GkY-co-9Kw" firstAttribute="leading" secondItem="kql-su-awj" secondAttribute="leading" id="W9y-zk-oM6"/>
                                             <constraint firstItem="VvC-tT-V5t" firstAttribute="leading" secondItem="kql-su-awj" secondAttribute="leadingMargin" id="dm6-sc-emu"/>
                                             <constraint firstAttribute="trailing" secondItem="G03-0P-G2R" secondAttribute="trailing" id="dwe-e3-JNZ"/>
                                             <constraint firstAttribute="bottom" secondItem="G03-0P-G2R" secondAttribute="bottom" id="kxn-aS-y0T"/>
+                                            <constraint firstAttribute="bottom" secondItem="GkY-co-9Kw" secondAttribute="bottom" id="nKA-zf-zSz"/>
                                             <constraint firstItem="G03-0P-G2R" firstAttribute="top" secondItem="kql-su-awj" secondAttribute="top" id="rHw-Sy-yE3"/>
                                             <constraint firstItem="G03-0P-G2R" firstAttribute="leading" secondItem="kql-su-awj" secondAttribute="leading" id="wPT-oI-dHJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="G03-0P-G2R" id="60g-aW-rDC"/>
-                                            <outlet property="testLabel" destination="VvC-tT-V5t" id="Xgw-lA-xKF"/>
+                                            <outlet property="likesLabel" destination="VvC-tT-V5t" id="PHX-O7-AgW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

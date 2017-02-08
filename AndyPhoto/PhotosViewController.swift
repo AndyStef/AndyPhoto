@@ -72,6 +72,7 @@ extension PhotosViewController {
 
     @IBAction private func logoutAction(_ sender: Any) {
         AuthManager.sharedInstance.accessToken = nil
+        PhotosDataService.instance.photos = [Photo]()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -88,7 +89,6 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
 
-        //TODO: - implement trick to see likes normally
         let photo = photos[indexPath.item]
         cell.configureCellWith(photo: photo)
 

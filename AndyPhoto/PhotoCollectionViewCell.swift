@@ -9,11 +9,11 @@
 import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
-    @IBOutlet private weak var testLabel: UILabel?
+    @IBOutlet private weak var likesLabel: UILabel?
     @IBOutlet private weak var imageView: UIImageView?
 
     func configureCellWith(photo: Photo) {
-        testLabel?.text = String(photo.likes)
+        likesLabel?.text = String(photo.likes)
 
         //TODO: - Refactor this maybe i dont want to load images here
         if let photoImage = photo.photoImage {
