@@ -16,6 +16,8 @@ struct Constants {
 
     static let REDIRECT_URI = "urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob"
 
+    static let REDIRECT_URL = "urn:ietf:wg:oauth:2.0:oob"
+
     static let APP_SECRET = "21bfbc1fa1c9baab3ae1a39e49caf43453e6c2905bca70449149b0de23b7be27"
 
     static let GET_GLOBAL_PHOTOS = UNSPLASH_BASE_URL + "photos/?client_id=" + APP_ID + "&per_page=15"

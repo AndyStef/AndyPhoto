@@ -65,7 +65,7 @@ class AuthManager {
     init(appId: String, secret: String) {
         self.appId = appId
         self.secret = secret
-        self.redirectURL = URL(string: "urn:ietf:wg:oauth:2.0:oob")!
+        self.redirectURL = URL(string: Constants.REDIRECT_URL)!
     }
 
 }
