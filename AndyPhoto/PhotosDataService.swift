@@ -33,32 +33,12 @@ class PhotosDataService {
     func downloadPhotos(with sortType: SortType = .latest, completed: @escaping DownloadComplete) {
         let urlString = Constants.GET_GLOBAL_PHOTOS + "&order_by=\(sortType.nameFor())"
         guard let url = URL(string: urlString) else { return }
-        var photoLikes = 0
-        var photoDate = ""
-        var photoUrl = ""
-        var photoId = ""
-        var isLiked = false
-        
+
         request(url).responseJSON { (responce) in
             if let photosArray = responce.result.value as? [[String: Any]] {
                 for photo in photosArray {
-                    if let likes = photo["likes"] as? Int,
-                        let date = photo["created_at"] as? String,
-                        let id = photo["id"] as? String,
-                        let liked = photo["liked_by_user"] as? Bool {
-                        photoLikes = likes
-                        photoDate = date
-                        photoId = id
-                        isLiked = liked
-                    }
+                    guard let photoToAdd = self.parsePhotoWith(inputDict: photo) else { return }
 
-                    if let urlsBox = photo["urls"] as? [String: Any] {
-                        if let url = urlsBox["small"] as? String {
-                            photoUrl = url
-                        }
-                    }
-
-                    let photoToAdd = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl, photoId: photoId, isLiked: isLiked)
                     if let userInfo = photo["user"] as? [String: Any] {
                         photoToAdd.user = self.parseUserWith(inputDict: userInfo)
                     }
@@ -73,37 +53,16 @@ class PhotosDataService {
 
     func getRandomPhoto(completed: @escaping DownloadComplete) {
         guard let url = URL(string: Constants.GET_RANDOM_PHOTO) else { return }
-        var photoLikes = 0
-        var photoDate = ""
-        var photoUrl = ""
-        var photoId = ""
-        var isLiked = false
 
         request(url).responseJSON { (response) in
-            if let photo = response.result.value as? [String: Any] {
-                //TODO: - put this into separate method
-                if let likes = photo["likes"] as? Int,
-                    let date = photo["created_at"] as? String,
-                    let id = photo["id"] as? String,
-                    let liked = photo["liked_by_user"] as? Bool {
-                    photoLikes = likes
-                    photoDate = date
-                    photoId = id
-                    isLiked = liked
+            if let photoDict = response.result.value as? [String: Any] {
+                let photoToAdd = self.parsePhotoWith(inputDict: photoDict)
+                photoToAdd?.isRandom = true
+
+                if let userInfo = photoDict["user"] as? [String: Any] {
+                    photoToAdd?.user = self.parseUserWith(inputDict: userInfo)
                 }
 
-                if let urlsBox = photo["urls"] as? [String: Any] {
-                    if let url = urlsBox["small"] as? String {
-                        photoUrl = url
-                    }
-                }
-
-                let photoToAdd = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl, photoId: photoId, isLiked: isLiked)
-                photoToAdd.isRandom = true
-                if let userInfo = photo["user"] as? [String: Any] {
-                    photoToAdd.user = self.parseUserWith(inputDict: userInfo)
-                }
-                //-----------------------------------
                 self.randomPhoto = photoToAdd
             }
 
@@ -137,6 +96,34 @@ class PhotosDataService {
                 completed()
             }
         }
+    }
+
+    private func parsePhotoWith(inputDict: [String: Any]) -> Photo? {
+        var photoLikes = 0
+        var photoDate = ""
+        var photoUrl = ""
+        var photoId = ""
+        var isLiked = false
+
+        if let likes = inputDict["likes"] as? Int,
+            let date = inputDict["created_at"] as? String,
+            let id = inputDict["id"] as? String,
+            let liked = inputDict["liked_by_user"] as? Bool {
+            photoLikes = likes
+            photoDate = date
+            photoId = id
+            isLiked = liked
+        }
+
+        if let urlsBox = inputDict["urls"] as? [String: Any] {
+            if let url = urlsBox["small"] as? String {
+                photoUrl = url
+            }
+        }
+
+        let photo = Photo(likes: photoLikes, creationDate: photoDate, photoUrl: photoUrl, photoId: photoId, isLiked: isLiked)
+
+        return photo
     }
 
     private func parseUserWith(inputDict: [String: Any]) -> User? {
